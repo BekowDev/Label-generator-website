@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+@layer base {
+    :root {
+        --stop-scroll: hidden;
+        --stop-scroll-padding: 0px;
+        --fields-color: #edf0fb;
+        --body-color: #d6e2ff;
+        --animation-speed: 0.3s;
+        --animation-page-speed: 1s;
+        --block-color: #ffffff;
+    }
+
+    body {
+        font-family: "Montserrat", sans-serif;
+        background-color: var(--body-color);
+        overflow: var(--stop-scroll);
+        padding-right: var(--stop-scroll-padding);
+    }
+
+    .app {
+        flex: 1 1 auto;
+    }
+
+    img {
+        display: block;
+        width: 100%;
+        overflow: hidden;
+        user-select: none;
+    }
+
+    input:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
+    button,
+    input,
+    select {
+        user-select: none;
+        outline: none;
+    }
+
+    input[type="checkbox"] {
+        cursor: pointer;
+        padding: 0;
+        margin: 0;
+        width: 24px;
+        height: 24px;
+    }
+
+    button[disabled] {
+        opacity: 0.5;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+
+
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: #fff;
+        border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #c6c6c6;
+        border-radius: 5px;
+    }
+
+
+}
