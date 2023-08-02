@@ -1,4 +1,4 @@
-# WildCoder
+# WildCoder Diploma Work FrontEnd
 
 ## Project setup
 ```

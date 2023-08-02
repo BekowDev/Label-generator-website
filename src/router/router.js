@@ -8,16 +8,10 @@ import { createRouter, createWebHistory } from "vue-router"
 const isAuthorized = localStorage.hasOwnProperty("token")
 //! token need to check with valid
 const authGuard = function (to, from, next) {
-    if (!isAuthorized)
-        next({ path: "/auth" })
-    else
-        next()
+    !isAuthorized ? next({ path: "/auth" }) : next()
 }
 const authorized = function (to, from, next) {
-    if (isAuthorized)
-        next({ path: "/labels" })
-    else
-        next()
+    isAuthorized ? next({ path: "/labels" }) : next()
 }
 
 const routes = [

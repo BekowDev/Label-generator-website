@@ -58,7 +58,6 @@
         pointer-events: none;
     }
 
-
     ::-webkit-scrollbar {
         width: 10px;
         height: 10px;
@@ -73,6 +72,4 @@
         background-color: #c6c6c6;
         border-radius: 5px;
     }
-
-
 }
