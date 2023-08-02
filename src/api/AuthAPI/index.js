@@ -16,11 +16,6 @@ export const AuthAPI = {
         const data = username
         return DefaultAPIInstance.post(url, data)
     },
-    // updatePassword({ oldPassword, newPassword }) {
-    //     const url = "/updatePassword"
-    //     const data = { oldPassword, newPassword }
-    //     return DefaultAPIInstance.post(url, data)
-    // },
     deleteUser() {
         const url = "/deleteUser"
         return DefaultAPIInstance.delete(url)

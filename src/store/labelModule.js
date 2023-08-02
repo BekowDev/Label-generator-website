@@ -6,15 +6,11 @@ export const labelModule = {
         menuActive: false,
         sortActive: false,
         printActive: false,
-
         printing: false,
-
         labels: [],
         chosenLabel: undefined,
         chosenLabels: [],
-
         totalPage: '0',
-
         getData: {
             sortBy: "addedDate",
             sortOrder: "desc",
@@ -22,12 +18,10 @@ export const labelModule = {
             limit: "8",
             search: ""
         },
-
         labelOptions: {
             width: 58,
             height: 40,
         },
-        
         barcodeOptions: {
             width: 1,
             height: 30,
@@ -39,7 +33,6 @@ export const labelModule = {
             format: "CODE128",
             fontSize: 11,
         },
-
         printSettings: {
             colorSizeSameLine: false,
             eac: false,
@@ -48,17 +41,15 @@ export const labelModule = {
             YCentered: false
         },
     }),
-
     getters: {
         allLabels(state) {
             return state.labels
         },
     },
-
     mutations: {
         setDialogWrapper(state, value) {
             state.dialogWrapper = value
-            if(!value) {
+            if (!value) {
                 state.menuActive = false
                 state.sortActive = false
                 state.printActive = false
@@ -89,41 +80,29 @@ export const labelModule = {
         setPrinting(state) {
             state.printing = !state.printing
         },
-
-
-        
         setLabelWidth(state, value) {
-            if(value < 100)
+            if (value < 100)
                 state.labelOptions.width = +value
-
         },
         setLabelHeight(state, value) {
-            if(value < 48) 
+            if (value < 48)
                 state.labelOptions.height = +value
         },
-
-
-
-
         setSortDialog(state) {
             state.sortActive = !state.sortActive
         },
-        
         setMenuActive(state) {
             state.menuActive = !state.menuActive
         },
         setPrintActive(state) {
             state.printActive = !state.printActive
         },
-
-
         setFormat(state, value) {
             state.barcodeOptions.format = value
         },
         setFontSize(state, value) {
             state.barcodeOptions.fontSize = +value
         },
-
         setColorSizeSameLine(state, value) {
             state.printSettings.colorSizeSameLine = value
         },
@@ -136,11 +115,9 @@ export const labelModule = {
         setCentered(state, value) {
             state.printSettings.centered = value
         },
-        setYCentered(state, value){
+        setYCentered(state, value) {
             state.printSettings.YCentered = value
         },
-
-        
         setChosenLabel(state, value) {
             state.chosenLabel = value
         },
@@ -150,12 +127,10 @@ export const labelModule = {
         clearChosenLabels(state) {
             state.chosenLabels = []
         },
-        setChosenLabels(state, { obj, checked, limit }) { 
-            if(limit !== state.chosenLabels.length) 
+        setChosenLabels(state, { obj, checked, limit }) {
+            if (limit !== state.chosenLabels.length)
                 checked ? state.chosenLabels.push(obj) : (state.chosenLabels = state.chosenLabels.filter((r) => r._id !== obj._id))
         },
-
-
         setLabels(state, value) {
             state.labels = value.map(e => ({ ...e, chose: false }))
         },
@@ -184,11 +159,11 @@ export const labelModule = {
             try {
                 setTimeout(
                     async () => {
-                    const res = await LabelAPI.getLabels(state.getData);
-                    commit('setLabels', res.data.labels);
-                    commit('setTotalPage', res.data.totalPage);
-                  }, 500);
-            } 
+                        const res = await LabelAPI.getLabels(state.getData);
+                        commit('setLabels', res.data.labels);
+                        commit('setTotalPage', res.data.totalPage);
+                    }, 500);
+            }
             catch (error) {
                 console.error("Ошибка при отправке POST-запроса:", error)
             }
@@ -204,7 +179,7 @@ export const labelModule = {
                 console.error("Ошибка при отправке POST-запроса:", error)
             }
         },
-        async deleteLabel({ commit}, id) {
+        async deleteLabel({ commit }, id) {
             try {
                 const deleteId = [id]
                 await LabelAPI.deleteLabels(deleteId)
@@ -215,28 +190,3 @@ export const labelModule = {
         },
     },
 }
-
-
-
-
-
-        // setChosenLabels(state, { checked, obj }) {
-        //     checked ?
-        //         state.chosenLabels.push(obj)
-        //         :
-        //         state.chosenLabels = state.chosenLabels.filter((r) => r._id !== obj._id)
-        // },   
-        // clearChosenLabels(state) {
-        //     state.chosenLabels = []
-        // }
-        // async deleteLabels({ commit, state }) {
-        //     try {
-        //         const deleteIds = state.chosenLabels.map((obj) => {
-        //             return obj._id.toString()
-        //         })
-        //         await LabelAPI.deleteLabels(deleteIds)
-        //         commit('clearChosenLabels')
-        //     } catch (error) {
-        //         console.error("Ошибка при отправке POST-запроса:", error)
-        //     }
-        // },

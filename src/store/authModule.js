@@ -1,6 +1,4 @@
 import { AuthAPI } from "@/api/AuthAPI"
-import router from "@/router/router"
-import { ErrorCodes } from "vue"
 export const authModule = {
     state: () => ({
         haveAccount: false,
@@ -62,16 +60,6 @@ export const authModule = {
                 alert('Ошибка')
             }
         },
-        // async updatePassword({ }, { oldPassword, newPassword }) {
-        //     try {
-        //         const res = await AuthAPI.updatePassword({ oldPassword, newPassword })
-        //         if (res) {
-        //             alert(res.data.message)
-        //         }
-        //     } catch (error) {
-        //         console.error("Ошибка при отправке POST-запроса:", error)
-        //     }
-        // },
         async deleteUser({ commit }) {
             try {
                 const res = await AuthAPI.deleteUser()

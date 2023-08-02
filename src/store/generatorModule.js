@@ -419,11 +419,11 @@ export const generatorModule = {
                         }
                     }
                     else {
-                        alert('barcode!')
+                        alert('Barcode!')
                     }
                 }
                 else {
-                    const data = state.rows.map(({ _id, ...temp }) => temp); // id-жоқ қылады
+                    const data = state.rows.map(({ _id, ...temp }) => temp); // убрать id всех элементов
                     await LabelAPI.createLabels(data)
                     commit('clearTable')
                 }
