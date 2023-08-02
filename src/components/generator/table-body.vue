@@ -161,4 +161,5 @@ tr {
 
 .tr-table-leave-active {
     position: absolute;
-}</style>
+}
+</style>

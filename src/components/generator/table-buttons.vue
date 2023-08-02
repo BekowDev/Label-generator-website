@@ -32,7 +32,7 @@
                 {{ $t('addRowButtonG') }}
             </button>
             <button
-                @dblclick="$store.commit('clearTable')"
+                @click="$store.commit('clearTable')"
                 :disabled="$store.state.generatorModule.editMode"
                 class="flex items-center gap-2"
             >
