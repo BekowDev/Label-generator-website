@@ -1,9 +1,33 @@
-# WildCoder Diploma Work FrontEnd
+# WildCoder
+Дипломная работа для колледжа
+Тема: "Генератор штрих кодов для онлайн магазинов"
+Цель: "Создать сайт для генерации и сохранение штрих кодов с возможностью редактирования и написания дополнительных данных о товаре (Включая сертификацию)"
 
-## Project setup
+Основная технология FrontEnd: Vue.js, VueX
+i18n - Для локализаций проекта (РУ, КЗ)
+axios - Для работы с Backend API
+tailwind - Для быстрого написания css
+
+Для работы Backend требуется MongoDB.
+Настройки MongoDB и BackEnd находится в /server/.env
+
+Основная технология Backend: Express.js
+
+## Настройка и запуск FrontEnd
+Для настройки FrontEnd в корне прописываем:
 ```
 npm install
 ```
-### Compiles and hot-reloads for development
+Для запуска:
 ```
 npm run serve
+```
+###  Настройка и запуск BackEnd
+Для настройки BackEnd переходим в папку /server/ и прописываем:
+```
+npm install
+```
+Для запуска:
+```
+npm run dev
+```
